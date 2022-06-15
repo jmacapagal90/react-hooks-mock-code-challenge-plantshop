@@ -3,7 +3,7 @@ import Header from "./Header";
 import PlantPage from "./PlantPage";
 
 function App() {
-  const [plants,setPlants] = useState()
+  const [plants,setPlants] = useState([])
   //first fetch data
   useEffect(()=>{
     fetch("http://localhost:6001/plants")

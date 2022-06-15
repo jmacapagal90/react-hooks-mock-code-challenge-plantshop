@@ -1,12 +1,7 @@
 import React from "react";
 
-function PlantCard({
-  name,
-  image = "https://via.placeholder.com/400",
-  price
-  }) 
-  {
-    console.log(name)
+function PlantCard({id, name, image, price}) {
+
   return (
     <li className="card">
       <img src={image} alt={name} />
