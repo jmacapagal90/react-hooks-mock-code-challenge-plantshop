@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import PlantPage from "./PlantPage";
 
 function App() {
+  const [plants,setPlants] = useState()
+  const [search,setSearch] = useState("")
+  //first fetch data
+  useEffect(()=>{
+    fetch("http://localhost:6001/plants")
+      .then(resp => resp.json())
+      .then(plants => setPlants(plants))
+
+  },[])
+  ////
+  function handleSearch(e){
+    console.log(e.target.value)
+  }
+
   return (
     <div className="app">
-      <Header />
-      <PlantPage />
+      <Header plants={plants}/>
+      <PlantPage onSearch={handleSearch} plants={plants}/>
     </div>
   );
 }
