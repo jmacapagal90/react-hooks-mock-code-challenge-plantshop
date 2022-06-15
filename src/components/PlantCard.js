@@ -3,8 +3,10 @@ import React from "react";
 function PlantCard({
   name,
   image = "https://via.placeholder.com/400",
-  price}) {
-
+  price
+  }) 
+  {
+    console.log(name)
   return (
     <li className="card">
       <img src={image} alt={name} />

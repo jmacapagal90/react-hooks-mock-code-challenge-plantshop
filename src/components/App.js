@@ -4,7 +4,6 @@ import PlantPage from "./PlantPage";
 
 function App() {
   const [plants,setPlants] = useState()
-  const [search,setSearch] = useState("")
   //first fetch data
   useEffect(()=>{
     fetch("http://localhost:6001/plants")
@@ -13,14 +12,13 @@ function App() {
 
   },[])
   ////
-  function handleSearch(e){
-    console.log(e.target.value)
-  }
-
+  // function handleSearch(e){
+  //   console.log(e.target.value)
+  // }
   return (
     <div className="app">
       <Header plants={plants}/>
-      <PlantPage onSearch={handleSearch} plants={plants}/>
+      <PlantPage plants={plants}/>
     </div>
   );
 }
