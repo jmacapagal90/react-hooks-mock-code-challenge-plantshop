@@ -4,6 +4,7 @@ import PlantPage from "./PlantPage";
 
 function App() {
   const [plants,setPlants] = useState([])
+  const [searchTerm,setSearchTerm] = useState("")
   //first fetch data
   useEffect(()=>{
     fetch("http://localhost:6001/plants")
@@ -12,13 +13,20 @@ function App() {
 
   },[])
   ////
-  // function handleSearch(e){
-  //   console.log(e.target.value)
-  // }
+  function handleSearch(e){
+   setSearchTerm(e.target.value)
+   
+  }
+  console.log(searchTerm)
+  // const plantsDisplay = plants.filter((plant) => {
+  // const plantName = plant.name
+  // plantName.toLowercase().includes(searchTerm.toLowercase())})
+
+  
   return (
     <div className="app">
-      <Header plants={plants}/>
-      <PlantPage plants={plants}/>
+      <Header />
+      <PlantPage plants={plants} handleSearch={handleSearch}/>
     </div>
   );
 }
