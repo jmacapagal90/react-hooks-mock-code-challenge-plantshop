@@ -2,16 +2,20 @@ import React, { useState } from "react";
 
 function PlantCard({id, name, image, price, onDeletePlant}) {
   const [stock,setStock] = useState(true)
+  ///functionality functions
+
+  //this changes the stock variable which sets the button if it's in or out of stock
   function handleClick(){
     setStock(!stock)
   }
+  //this handles the delete by deleting plant from server and then sending it to cb to re render DOM
   function handleDeleteClick() {
     fetch(`http://localhost:6001/plants/${id}`, {
       method: "DELETE",
     });
     onDeletePlant(id);
   }
-
+  // render cards by using props
   return (
     <li className="card">
       <img src={image} alt={name} />

@@ -4,7 +4,7 @@ function NewPlantForm({ onAddPlant }) {
   const [name,setName] = useState("")
   const [image,setImage] = useState("")
   const [price,setPrice] = useState("")
-
+  //this sends the data up to the server which then sends it back down to onAddPlant which rerenders DOM
   function handleFormSubmit(e){
     e.preventDefault()
     fetch("http://localhost:6001/plants", {
@@ -23,7 +23,7 @@ function NewPlantForm({ onAddPlant }) {
   }
   
 
-
+  //on change, set these state variables based on the input value. the input value is set to the state variables so that we have realtime response
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
